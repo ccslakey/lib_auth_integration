@@ -1,17 +1,109 @@
 <h1>Welcome Home!</h1>
-
+<hr>
 <% if current_user %>
 
-<%= link_to "Profile", user_path(current_user), method: :get %>
+<%= link_to "Profile", user_path(current_user), method: :get, class: "btn btn-primary" %>
 
-<%= link_to "Logout", sessions_path, method: :delete %> 
+<%= link_to "Logout", sessions_path, method: :delete, class: "btn btn-primary" %> 
+<hr>
+<br>
+  <!-- Authors Modal Button -->
+  <button type="button" class="btn btn-info" data-toggle="modal" data-target="#authorsModal">View Authors</button>
+<br>
+  <!-- Authors Modal Button -->
+  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#booksModal">View Books</button>
+<br>
+  <!-- Authors Modal Button -->
+  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#librariesModal">View Libraries</button>
+
+<hr>
+
+<!-- Books List -->
+<!-- what the heck?? -->
+ <% Book.all do |book| %>
+  <div>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <h2>Name: <%= book.title %></h2> </li>
+    <!-- <li class="list-group-item">
+      Description: <%=  book.description %></li>
+  <li class="list-group-item">
+    <small>ISBN#<%=  book.isbn  %></small> 
+  </li> 
+     <li class="list-group-item">
+    <%= button_to "Delete", book, method: :delete, class: 'btn btn-danger' %></li> -->
+    </ul>
+    </div>
+<% end %>
+
 
 <% else %>
 
-<%= link_to "Signup", sign_up_path, method: :get %>
+<%= link_to "Signup", sign_up_path, method: :get, class: "btn btn-primary" %>
 
-<span>or</span>
 
-<%= link_to "Login", login_path, method: :get %>
+<%= link_to "Login", login_path, method: :get, class: "btn btn-primary" %>
 
 <% end %>
+
+
+
+<!-- Author Modal -->
+  <div class="modal fade" id="authorsModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Books</h4>
+        </div>
+        <div class="modal-body">
+          <p>Render books here</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- Book Modal -->
+  <div class="modal fade" id="booksModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Books</h4>
+        </div>
+        <div class="modal-body">
+          <p>Render books here</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- Library Modal -->
+  <div class="modal fade" id="librariesModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Libraries</h4>
+        </div>
+        <div class="modal-body">
+          <p>Render libs here</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>

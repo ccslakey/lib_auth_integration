@@ -1,14 +1,11 @@
 <h1>Signup</h1>
 
 <%= form_for @user do |f| %>
-  <%= f.label :email %>:
-  <%= f.text_field :email %><br />
+  <%= f.text_field :email, class: "form-control", placeholder: "Username" %><br />
 
-  <%= f.label :password %>:
-  <%= f.password_field :password %><br />
+  <%= f.password_field :password, class: "form-control", placeholder: "Password" %><br />
 
-  <%= f.label :password_confirmation %>:
-  <%= f.password_field :password_confirmation %><br />
+  <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm Password" %><br />
 
-  <%= f.submit %>
+  <%= f.submit class: "btn btn-primary"%>
 <% end %>

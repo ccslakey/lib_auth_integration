@@ -3,8 +3,12 @@ require 'bcrypt'
 class User < ActiveRecord::Base
   BCrypt::Engine.cost = 12
 
-  validates_presence_of :email, :password_digest
+
   validates_confirmation_of :password
+  validates :email, :password_digest, presence: true, uniqueness: true
+  
+  has_many :users_books
+  has_many :books, through: :users_books
 
   def authenticate(unencrypted_password)
     secure_password = BCrypt::Password.new(self.password_digest)
