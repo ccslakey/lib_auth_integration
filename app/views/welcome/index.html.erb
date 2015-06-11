@@ -18,23 +18,7 @@
 
 <hr>
 
-<!-- Books List -->
-<!-- what the heck?? -->
- <% Book.all do |book| %>
-  <div>
-  <ul class="list-group">
-    <li class="list-group-item">
-      <h2>Name: <%= book.title %></h2> </li>
-    <!-- <li class="list-group-item">
-      Description: <%=  book.description %></li>
-  <li class="list-group-item">
-    <small>ISBN#<%=  book.isbn  %></small> 
-  </li> 
-     <li class="list-group-item">
-    <%= button_to "Delete", book, method: :delete, class: 'btn btn-danger' %></li> -->
-    </ul>
-    </div>
-<% end %>
+
 
 
 <% else %>
@@ -78,7 +62,22 @@
           <h4 class="modal-title">Books</h4>
         </div>
         <div class="modal-body">
-          <p>Render books here</p>
+          <!-- Books List -->
+<!-- what the heck?? -->
+ <% @books.each do |book| %>
+  <div>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <h2>Name: <%= book.title %></h2> </li>
+    <li class="list-group-item">
+      Description: <%=  book.description %></li>
+  <li class="list-group-item">
+    <small>ISBN#<%=  book.isbn  %></small> 
+  </li> 
+     
+    </ul>
+    </div>
+<% end %>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
